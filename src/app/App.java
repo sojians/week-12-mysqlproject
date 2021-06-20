@@ -11,9 +11,6 @@ import entity.Users;
 
 public class App {
 	private Scanner scan = new Scanner(System.in);
-	private UsersDao userDao = new UsersDao();
-	private RestaurantsDao restaDao = new RestaurantsDao();
-	private DishesDao dishDao = new DishesDao();
 
 	public static void main(String[] args) {
 		new App().runMenu();	
@@ -115,40 +112,37 @@ public class App {
 		int dishId = readIntInput("Enter dish ID: ");
 		
 		DishesDao.deleteDish(dishId);
-		System.out.println();
-		
+		System.out.println("Dish has been deleted");		
 	}
 
 	private void updateDishes() {
 		System.out.println("***");
 		System.out.println("You selected update dishes");
-		int dishId = readIntInput("Enter Dish ID: ");
-		String dishName = readStringInput("Enter name: ");
-		String orderDate = readStringInput ("Enter Date Ordered: ");
-		String dishComment = readStringInput ("Enter a Comment: ");
-		double dishPrice = readDoubleInput ("Enter the Dish Price: ");
+		int dishId = readIntInput("Enter Dish ID");
+		String dishName = readStringInput("Enter name");
+		String orderDate = readStringInput ("Enter Date Ordered (YYYY-MM-DD)");
+		String dishComment = readStringInput ("Enter a Comment");
+		double dishPrice = readDoubleInput ("Enter the Dish Price");
 		int dishScore = readIntInput("Enter a Dish Score");
 		
 		DishesDao.updateDish(dishId, dishName, orderDate, 
 			dishComment, dishPrice, dishScore);
-		System.out.println("Dish has been updated");
-		
+		System.out.println("Dish has been updated");		
 	}
 
 
 	private void createDishes() {
 		System.out.println("***");
 		System.out.println("You selected add a dish");
-		String dishName = readStringInput("Enter name: ");
-		String orderDate = readStringInput ("Enter Date Ordered: ");
-		String dishComment = readStringInput ("Enter a Comment: ");
-		double dishPrice = readDoubleInput ("Enter the Dish Price: ");
+		String dishName = readStringInput("Enter name");
+		String orderDate = readStringInput ("Enter Date Ordered (YYYY-MM-DD)");
+		String dishComment = readStringInput ("Enter a Comment");
+		double dishPrice = readDoubleInput ("Enter the Dish Price");
 		int dishScore = readIntInput("Enter a Dish Score (0-9)");
 		
 		DishesDao.createDish(dishName, orderDate, 
 			dishComment, dishPrice, dishScore);
-		System.out.println("Dish has been added");
-		
+		System.out.println("Dish has been added");		
 	}
 
 	private void readDishes() {
@@ -156,7 +150,7 @@ public class App {
 		List<Dishes> dishes = DishesDao.findDishes();
 		
 		System.out.println("***");
-		System.out.println("Here are the dishes: ");
+		System.out.println("Here are the dishes");
 		
 		if(dishes.isEmpty()) {
 			System.out.println("There is no data!");
@@ -166,63 +160,60 @@ public class App {
 			dish.getDishPrice() + " Ordered: " + dish.getOrderDate() + " Score: " + 
 						dish.getDishScore() + " Comment: " + dish.getDishComment()); 
 			}
-		}
-		
+		}		
 	}
 
 	private void deleteResta() {
 		System.out.println("****");
 		System.out.println("You selected delete dishes");
-		int restaId = readIntInput("Enter Restaurant ID: ");
+		int restaId = readIntInput("Enter Restaurant ID");
 		
 		RestaurantsDao.deleteResta(restaId);
-		System.out.println();
-		
+		System.out.println("Restaurant has been deleted");		
 	}
 
 	private void updateResta() {
 		System.out.println("***");
 		System.out.println("You selected update restaurants");
-		int restaId = readIntInput("Enter Restaurant ID: ");
-		String restaName = readStringInput("Enter Restaurant name: ");
-		String restaCity = readStringInput ("Enter City: ");
-		String visitDate = readStringInput ("Enter Date Visited: ");
+		int restaId = readIntInput("Enter Restaurant ID");
+		String restaName = readStringInput("Enter Restaurant name");
+		String visitDate = readStringInput ("Enter Date Visited (YYYY-MM-DD)");
 		int restaScore = readIntInput("Enter a Restaurant Score (0-9)");
+		String restaCity = readStringInput ("Enter City");
 		
 		RestaurantsDao.updateResta(restaId, restaName, restaCity, 
 			visitDate, restaScore);
-		System.out.println("Restaurant has been updated");
-		
+		System.out.println("Restaurant has been updated");		
 	}
 
 	private void createResta() {
 		System.out.println("***");
 		System.out.println("You selected add restaurants");
-		String restaName = readStringInput("Enter Restaurant name: ");
-		String restaCity = readStringInput ("Enter City: ");
-		String visitDate = readStringInput ("Enter Date Visited: ");
+		String restaName = readStringInput("Enter Restaurant name");
+		String visitDate = readStringInput ("Enter Date Visited (YYYY-MM-DD)");
 		int restaScore = readIntInput("Enter a Restaurant Score (0-9)");
+		String restaCity = readStringInput ("Enter City");
 		
 		RestaurantsDao.createResta(restaName, restaCity, 
 			visitDate, restaScore);
-		System.out.println("Restaurant has been added");
-		
+		System.out.println("Restaurant has been added");		
 	}
 
 	private void readResta() {
 		System.out.println("You selected List Restaurants...");
-		List<Restaurants> resta = RestaurantsDao.findResta();
+		List<Restaurants> restas = RestaurantsDao.findRestas();
 		
 		System.out.println("***");
-		System.out.println("Here are the Restaurants: ");
+		System.out.println("Here are the Restaurants");
 		
-		if(resta.isEmpty()) {
+		if(restas.isEmpty()) {
 			System.out.println("There is no data!");
 		} else {
 			for(Restaurants resta : restas) {
-				System.out.println(resta.getRestaId() + " Name: " + resta.getRestaName() + " City: " +
-			resta.getRestaCity() + " Date Visited: " + resta.getVisitDate() + " Score: " + 
-						resta.getRestaScore()); 
+				System.out.println("ID: " + resta.getRestaId() + ", Restaurant Name: " 
+			+ resta.getRestaName() + ", City: " + resta.getRestaCity() +
+				", Date Visited: " + resta.getVisitDate() + 
+						", Score: " + resta.getRestaScore()); 
 			}
 		}
 	}
@@ -230,55 +221,49 @@ public class App {
 	private void deleteUsers() {
 		System.out.println("****");
 		System.out.println("You selected delete user");
-		int userId = readIntInput("Enter User ID: ");
+		int userId = readIntInput("Enter User ID");
 		
-		UsersDao.deleteUser(userId);
-		System.out.println();
-		
+		UsersDao.deleteUser(userId);	
+		System.out.println("user has been deleted");
 	}
 
 	private void updateUsers() {
 		System.out.println("***");
 		System.out.println("You selected update users");
-		int userId = readIntInput("Enter User ID: ");
-		String firstName = readStringInput("Enter first name: ");
-		String lastName = readStringInput("Enter last name: ");
-		String email = readStringInput ("Enter email: ");
-		String userName = readStringInput ("Enter user name: ");
-		String userBio = readStringInput("Enter Bio: ");
-		String password = readStringInput("Enter password: ");
+		int userId = readIntInput("Enter User ID");
+		String firstName = readStringInput("Enter first name");
+		String lastName = readStringInput("Enter last name");
+		String email = readStringInput ("Enter email");
+		String userName = readStringInput ("Enter user name");
+		String userBio = readStringInput("Enter Bio");
+		String password = readStringInput("Enter password");
 		
 		UsersDao.updateUser(userId, firstName, lastName, email, userName,  
 			userBio, password);
-		System.out.println("user has been updated");
-		
+		System.out.println("user has been updated");		
 	}
 
 	private void createUsers() {
 		System.out.println("***");
 		System.out.println("You selected add a user");
-		String firstName = readStringInput("Enter first name: ");
-		String lastName = readStringInput("Enter last name: ");
-		String email = readStringInput ("Enter email: ");
-		String userName = readStringInput ("Enter user name: ");
-		String userBio = readStringInput("Enter Bio: ");
-		String password = readStringInput("Enter password: ");
+		String firstName = readStringInput("Enter first name");
+		String lastName = readStringInput("Enter last name");
+		String email = readStringInput ("Enter email");
+		String userName = readStringInput ("Enter user name");
+		String userBio = readStringInput("Enter Bio");
+		String password = readStringInput("Enter password");
 		
-		UsersDao.createUser(firstName, lastName, email, userName,  
-			userBio, password);
-		System.out.println("user has been added");
-
-		
+		UsersDao.createUser(firstName, lastName, email, userName, userBio, password);
+		System.out.println("user has been added");		
 	}
 
 	private void readUsers() {
-		System.out.println("You selected List Restaurants...");
-		List<Users> user = UsersDao.findUsers();
+		List<Users> users = UsersDao.findUsers();
 		
 		System.out.println("***");
 		System.out.println("Here are the Users: ");
 		
-		if(user.isEmpty()) {
+		if(users.isEmpty()) {
 			System.out.println("There is no data!");
 		} else {
 			for(Users user : users) {
@@ -287,10 +272,10 @@ public class App {
 					user.getUserName() + " bio: " + user.getUserBio() + " password: " + user.getPassword()); 
 			}
 		}
-
 	}
 
 	private void printMenu() {
+		System.out.println();
 		System.out.println("**What would you like to access?**");
 		System.out.println("**1: List All Users");
 		System.out.println("**2: Add a User");
@@ -306,5 +291,4 @@ public class App {
 		System.out.println("*12: Delete Dish Info");
 		System.out.println("*99: Exit the application");	
 	}
-
 }
