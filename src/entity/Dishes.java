@@ -22,37 +22,25 @@ public class Dishes {
 	public int getDishId() {
 		return dishId;
 	}
-	public void setDishId(int dishId) {
-		this.dishId = dishId;
-	}
+
 	public String getDishName() {
 		return dishName;
 	}
-	public void setDishName(String dishName) {
-		this.dishName = dishName;
-	}
+
 	public String getOrderDate() {
 		return orderDate;
 	}
-	public void setOrderDate(String orderDate) {
-		this.orderDate = orderDate;
-	}
+
 	public String getDishComment() {
 		return dishComment;
 	}
-	public void setDishComment(String dishComment) {
-		this.dishComment = dishComment;
-	}
+
 	public double getDishPrice() {
 		return dishPrice;
 	}
-	public void setDishPrice(double dishPrice) {
-		this.dishPrice = dishPrice;
-	}
+
 	public int getDishScore() {
 		return dishScore;
 	}
-	public void setDishScore(int dishScore) {
-		this.dishScore = dishScore;
-	}
+
 }
