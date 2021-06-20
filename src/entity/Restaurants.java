@@ -1,38 +1,52 @@
 package entity;
 
 public class Restaurants {
-	private int restaurant_id;
-	private int user_id;
-	private String resta_name;
-	private String visit_date;
-	private short resta_score;
-	private String resta_city;
+	private int restaId;
 	
-	public Restaurants(int restaurant_id, int user_id, String resta_name, String visit_date, short resta_score, String resta_city) {
-		this.restaurant_id = restaurant_id;
-		this.user_id = user_id;
-		this.resta_name = resta_name;
-		this.visit_date = visit_date;
-		this.resta_score = resta_score;
-		this.resta_city = resta_city;
+	private String restaName;
+	private String visitDate;
+	private int restaScore;
+	private String restaCity;
+	
+	public Restaurants (int restaId, String restaName, String restaCity, 
+			String visitDate, int restaScore) {
+		this.restaId = restaId;
+		this.restaCity = restaCity;
+		this.restaName = restaName;
+		this.visitDate = visitDate;
+		this.restaScore = restaScore;
 	}
-
-	public int getRestaurant_id() {
-		return restaurant_id;
+	
+	public int getRestaId() {
+		return restaId;
 	}
-	public int getUser_id() {
-		return user_id;
+	public void setRestaId(int restaId) {
+		this.restaId = restaId;
 	}
-	public String getResta_name() {
-		return resta_name;
+	public String getRestaName() {
+		return restaName;
 	}
-	public String getVisit_date() {
-		return visit_date;
+	public void setRestaName(String restaName) {
+		this.restaName = restaName;
 	}
-	public short getResta_score() {
-		return resta_score;
+	public String getVisitDate() {
+		return visitDate;
 	}
-	public String getResta_city() {
-		return resta_city;
+	public void setVisitDate(String visitDate) {
+		this.visitDate = visitDate;
 	}
+	public int getRestaScore() {
+		return restaScore;
+	}
+	public void setRestaScore(int restaScore) {
+		this.restaScore = restaScore;
+	}
+	public String getRestaCity() {
+		return restaCity;
+	}
+	public void setRestaCity(String restaCity) {
+		this.restaCity = restaCity;
+	}
+	
+	
 }

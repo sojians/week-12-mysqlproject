@@ -1,45 +1,66 @@
 package entity;
 
 public class Users {
-	private int user_id;
-	private String first_name;
-	private String last_name;
+	private int userId;
+	private String firstName;
+	private String lastName;
 	private String email;
-	private String username;
-	private String user_bio;
+	private String userName;
+	private String userBio;
 	private String password;
-
-	public Users(int user_id, String first_name, String last_name, String email, String username, String user_bio, String password) {
-		this.user_id = user_id;
-		this.first_name = first_name;
-		this.last_name = last_name;
+	
+	public Users (int userId, String firstName, String lastName, String email, 
+			String userName, String userBio, String password) {
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
-		this.username = username;
-		this.user_bio = user_bio;
+		this.userName = userName;
+		this.userBio = userBio;
 		this.password = password;
 	}
-
-	public int getUser_id() {
-		return user_id;
+	
+	public int getUserId() {
+		return userId;
 	}
-	public String getFirst_name() {
-		return first_name;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
-	public String getLast_name() {
-		return last_name;
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public String getEmail() {
 		return email;
 	}
-	public String getUsername() {
-		return username;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getUser_bio() {
-		return user_bio;
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getUserBio() {
+		return userBio;
+	}
+	public void setUserBio(String userBio) {
+		this.userBio = userBio;
 	}
 	public String getPassword() {
 		return password;
 	}
-
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 }

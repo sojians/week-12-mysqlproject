@@ -1,49 +1,58 @@
 package entity;
 
 public class Dishes {
-	private int dish_id;
-	private int user_id;
-	private int restaurant_id;
-	private String dish_name;
-	private String order_date;
-	private String dish_comment;
-	private float dish_price;
-	private short resta_score;
-	
-	public Dishes(int dish_id, int user_id, int restaurant_id, String dish_name, String order_date, String dish_comment, float dish_price, short resta_score) {
-		this.dish_id = dish_id;
-		this.user_id = user_id;
-		this.restaurant_id = restaurant_id;
-		this.dish_name = dish_name;
-		this.order_date = order_date;
-		this.dish_comment = dish_comment;
-		this.dish_price = dish_price;
-		this.resta_score = resta_score;
-	}
 
-	public int getDish_id() {
-		return dish_id;
-	}
-	public int getUser_id() {
-		return user_id;
-	}
-	public int getRestaurant_id() {
-		return restaurant_id;
-	}
-	public String getDish_name() {
-		return dish_name;
-	}
-	public String getOrder_date() {
-		return order_date;
-	}
-	public String getDish_comment() {
-		return dish_comment;
-	}
-	public float getDish_price() {
-		return dish_price;
-	}
-	public short getResta_score() {
-		return resta_score;
+	private int dishId;
+	private String dishName;
+	private String orderDate;
+	private String dishComment;
+	private double dishPrice;
+	private int dishScore;
+	
+	public Dishes (int dishId, String dishName, String orderDate, 
+			String dishComment, double dishPrice, int dishScore) {
+		this.dishId = dishId;
+		this.dishName = dishName;
+		this.orderDate = orderDate;
+		this.dishComment = dishComment;
+		this.dishPrice = dishPrice;
+		this.dishScore = dishScore;
 	}
 	
+	public int getDishId() {
+		return dishId;
+	}
+	public void setDishId(int dishId) {
+		this.dishId = dishId;
+	}
+	public String getDishName() {
+		return dishName;
+	}
+	public void setDishName(String dishName) {
+		this.dishName = dishName;
+	}
+	public String getOrderDate() {
+		return orderDate;
+	}
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
+	}
+	public String getDishComment() {
+		return dishComment;
+	}
+	public void setDishComment(String dishComment) {
+		this.dishComment = dishComment;
+	}
+	public double getDishPrice() {
+		return dishPrice;
+	}
+	public void setDishPrice(double dishPrice) {
+		this.dishPrice = dishPrice;
+	}
+	public int getDishScore() {
+		return dishScore;
+	}
+	public void setDishScore(int dishScore) {
+		this.dishScore = dishScore;
+	}
 }
