@@ -139,7 +139,6 @@ public class App {
 	private void createDishes() {
 		System.out.println("***");
 		System.out.println("You selected add a dish");
-		int dishId = readIntInput("Enter Dish ID: ");
 		String dishName = readStringInput("Enter name: ");
 		String orderDate = readStringInput ("Enter Date Ordered: ");
 		String dishComment = readStringInput ("Enter a Comment: ");
@@ -199,7 +198,6 @@ public class App {
 	private void createResta() {
 		System.out.println("***");
 		System.out.println("You selected add restaurants");
-		int restaId = readIntInput("Enter Restaurant ID: ");
 		String restaName = readStringInput("Enter Restaurant name: ");
 		String restaCity = readStringInput ("Enter City: ");
 		String visitDate = readStringInput ("Enter Date Visited: ");
@@ -259,7 +257,6 @@ public class App {
 	private void createUsers() {
 		System.out.println("***");
 		System.out.println("You selected add a user");
-		int userId = readIntInput("Enter User ID: ");
 		String firstName = readStringInput("Enter first name: ");
 		String lastName = readStringInput("Enter last name: ");
 		String email = readStringInput ("Enter email: ");
