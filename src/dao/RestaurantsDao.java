@@ -42,6 +42,8 @@ public class RestaurantsDao {
 		try(Connection connection = DbConnection.getConnection()) {
 			String sql = "UPDATE restaurant SET resta_name = ? WHERE resta_id = ?";
 			try(PreparedStatement statement = connection.prepareStatement(sql)){
+				statement.setString(1, restaName);
+				statement.setInt(2, restaId);
 
 				statement.executeUpdate();
 			}

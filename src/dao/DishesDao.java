@@ -43,6 +43,8 @@ public class DishesDao {
 		try(Connection connection = DbConnection.getConnection()) {
 			String sql = "UPDATE dish SET dish_name = ? WHERE dish_id = ?";
 			try(PreparedStatement statement = connection.prepareStatement(sql)){
+				statement.setString(1, dishName);
+				statement.setInt(2, dishId);
 
 				statement.executeUpdate();
 			}
