@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
-
 import entity.Users;
 
 
@@ -26,17 +25,23 @@ public class UsersDao {
 	public static void updateUser(int userId, String firstName, String lastName, String email, String userName, String userBio,
 			String password) {
 		try(Connection connection = DbConnection.getConnection()) {
-			String sql = "UPDATE user SET username = ? WHERE user_id = ?";
-			try(PreparedStatement statement = connection.prepareStatement(sql)){
-				statement.setString(1, userName);
-				statement.setInt(2, userId);
-
+			String sql = "UPDATE user SET first_name = ?, last_name = ?, email = ?, username = ?, user_bio = ?, password = ? WHERE user_id = ?";
+			try(PreparedStatement statement = connection.prepareStatement(sql)) {
+				statement.setString(1, firstName);
+				statement.setString(2, lastName);
+				statement.setString(3, email);
+				statement.setString(4, userName);
+				statement.setString(5, userBio);
+				statement.setString(6, password);
+				statement.setInt(7, userId);
 				statement.executeUpdate();
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+		
 	}
+
 
 	public static List<Users> findUsers() {
 		try(Connection connection = DbConnection.getConnection();) {
@@ -69,7 +74,7 @@ public class UsersDao {
 
 	public static void createUser(String firstName, String lastName, String email, String userName,
 			String userBio, String password) {
-		String sql = "INSERT INTO users (first_name, last_name, email, username, user_bio, password) VALUES (?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO user (first_name, last_name, email, username, user_bio, password) VALUES (?, ?, ?, ?, ?, ?)";
 		try(Connection connection = DbConnection.getConnection()) {
 			try(PreparedStatement statement = connection.prepareStatement(sql)) {
 				statement.setString(1, firstName);
@@ -83,6 +88,7 @@ public class UsersDao {
 		} catch (SQLException e ) {
 			throw new RuntimeException(e);
 		}
+		
 	}
 
 }
