@@ -65,7 +65,7 @@ public class RestaurantsDao {
 	}
 
 	public static void createResta(String restaName, String restaCity, String visitDate, int restaScore) {
-		String sql = "INSERT INTO restaurants (restaName, restaCity, visitDate, restaScore) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO restaurants (resta_name, resta_city, visit_date, resta_score) VALUES (?, ?, ?, ?)";
 		try(Connection connection = DbConnection.getConnection()) {
 			try(PreparedStatement statement = connection.prepareStatement(sql)) {
 				statement.setString(1, restaName);

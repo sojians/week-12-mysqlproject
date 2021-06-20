@@ -69,16 +69,15 @@ public class UsersDao {
 
 	public static void createUser(int userId, String firstName, String lastName, String email, String userName,
 			String userBio, String password) {
-		String sql = "INSERT INTO users (userId, firstName, lastName, email, userName, userBio, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO users (first_name, last_name, email, username, user_bio, password) VALUES (?, ?, ?, ?, ?, ?)";
 		try(Connection connection = DbConnection.getConnection()) {
 			try(PreparedStatement statement = connection.prepareStatement(sql)) {
-				statement.setInt(1, userId);
-				statement.setString(2, firstName);
-				statement.setString(3, lastName);
-				statement.setString(4, email);
-				statement.setString(5, userName);
-				statement.setString(6, userBio);
-				statement.setString(7, password);
+				statement.setString(1, firstName);
+				statement.setString(2, lastName);
+				statement.setString(3, email);
+				statement.setString(4, userName);
+				statement.setString(5, userBio);
+				statement.setString(6, password);
 				statement.executeUpdate();
 			}
 		} catch (SQLException e ) {

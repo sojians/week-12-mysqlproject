@@ -59,7 +59,7 @@ public class DishesDao {
 
 	public static void createDish(String dishName, String orderDate, String dishComment, double dishPrice,
 			int dishScore) {
-		String sql = "INSERT INTO dishes (dishName, orderDate, dishComment, dishPrice, dishScore) VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO dishes (dish_name, order_date, dish_comment, dish_price, resta_score) VALUES (?, ?, ?, ?, ?)";
 		try(Connection connection = DbConnection.getConnection()) {
 			try(PreparedStatement statement = connection.prepareStatement(sql)) {
 				statement.setString(1, dishName);
