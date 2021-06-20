@@ -67,7 +67,7 @@ public class UsersDao {
 		}
 	}
 
-	public static void createUser(int userId, String firstName, String lastName, String email, String userName,
+	public static void createUser(String firstName, String lastName, String email, String userName,
 			String userBio, String password) {
 		String sql = "INSERT INTO users (first_name, last_name, email, username, user_bio, password) VALUES (?, ?, ?, ?, ?, ?)";
 		try(Connection connection = DbConnection.getConnection()) {
